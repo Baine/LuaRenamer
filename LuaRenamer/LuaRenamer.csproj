@@ -30,6 +30,14 @@
         </None>
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\LuaDefsGenerator\LuaDefsGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <CompilerVisibleProperty Include="ProjectDir" />
+    </ItemGroup>
+
     <Target Name="GetGitAssemblyVersion" BeforeTargets="GetAssemblyVersion">
         <Exec Command="git describe --match &quot;v[0-9]*.[0-9]*.[0-9]*&quot; --tags --abbrev=7 --long --dirty --always" ConsoleToMsBuild="true">
             <Output TaskParameter="ConsoleOutput" PropertyName="GitInfo" />

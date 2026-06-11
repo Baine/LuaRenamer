@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
-using LuaDefsGenerator;
 using LuaRenamer;
 using LuaNamesGenerator;
 using Microsoft.Extensions.Logging;
@@ -605,15 +604,6 @@ public class LuaTests
         var renamer = new LuaRenamer.LuaRenamer(Logmock);
         var res = renamer.GetPath(args);
         Assert.IsNotNull(res.Error);
-    }
-
-    [TestMethod]
-    public void TestLuaDocsGenerator()
-    {
-        var outputPath = Path.GetTempPath();
-        var generator = new Generator(outputPath);
-        generator.GenerateDefinitionFiles();
-        Console.WriteLine($"Generated docs: \"{outputPath}\"");
     }
 
     [TestMethod]
